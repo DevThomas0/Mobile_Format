@@ -6,9 +6,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Réserver le menu</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Styles pour le loading screen */
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        #loading-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Loader styles */
+        .loader {
+            width: 50px;
+            aspect-ratio: 1;
+            display: grid;
+        }
+
+        .loader:before,
+        .loader:after {
+            content: "";
+            grid-area: 1/1;
+            --c: #0000 calc(100%/3), #046D8B 0 calc(2*100%/3), #0000 0;
+            --c1: linear-gradient(90deg, var(--c));
+            --c2: linear-gradient(0deg, var(--c));
+            background: var(--c1), var(--c2), var(--c1), var(--c2);
+            background-size: 300% 4px, 4px 300%;
+            background-repeat: no-repeat;
+            animation: l11 1s infinite linear;
+        }
+
+        .loader:after {
+            margin: 10px;
+            transform: scaleX(-1);
+            animation-delay: -.25s;
+        }
+
+        @keyframes l11 {
+            0% {
+                background-position: 50% 0, 100% 100%, 0 100%, 0 0;
+            }
+
+            25% {
+                background-position: 0 0, 100% 50%, 0 100%, 0 0;
+            }
+
+            50% {
+                background-position: 0 0, 100% 0, 50% 100%, 0 0;
+            }
+
+            75% {
+                background-position: 0 0, 100% 0, 100% 100%, 0 50%;
+            }
+
+            75.01% {
+                background-position: 100% 0, 100% 0, 100% 100%, 0 50%;
+            }
+
+            100% {
+                background-position: 50% 0, 100% 0, 100% 100%, 0 100%;
+            }
+        }
+
+        /* Masquer le contenu du body tant que le loading est actif */
+        body.hidden {
+            visibility: hidden;
+        }
+
+        body.visible {
+            visibility: visible;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+    </style>
 </head>
 
-<body>
+<body class="hidden">
+
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader"></div>
+    </div>
 
     <!-- Menu de navigation -->
     <nav>
@@ -61,16 +150,33 @@
         <h2>Restaurants</h2>
 
         <div class="restaurant-list">
-
+            <!-- Restaurant Cards -->
             <div class="restaurant-card">
                 <picture>
                     <source srcset="Assets/marl.jpg" type="image/jpeg">
                     <img src="image" alt="Chez Marlène" loading="lazy">
                 </picture>
-
                 <div class="restaurant-info">
                     <h3>Chez Marlène</h3>
-                    <p>Montant Minimum: 3$/p>
+                    <p>Montant Minimum: 3$</p>
+
+                    <svg id='heart' height="0" width="0">
+                        <defs>
+                            <clipPath id="svgPath">
+                                <path d="M20,35.09,4.55,19.64a8.5,8.5,0,0,1-.13-12l.13-.13a8.72,8.72,0,0,1,12.14,0L20,10.79l3.3-3.3a8.09,8.09,0,0,1,5.83-2.58,8.89,8.89,0,0,1,6.31,2.58,8.5,8.5,0,0,1,.13,12l-.13.13Z"/>
+                            </clipPath>
+                        </defs>
+                    </svg>
+
+                    
+                    <div class="heart-container">
+                       <svg width="40" height="40" viewBox="0 0 40 40" class='heart-stroke'>
+                          <path d="M20,35.07,4.55,19.62a8.5,8.5,0,0,1-.12-12l.12-.12a8.72,8.72,0,0,1,12.14,0L20,10.77l3.3-3.3A8.09,8.09,0,0,1,29.13,4.9a8.89,8.89,0,0,1,6.31,2.58,8.5,8.5,0,0,1,.12,12l-.12.12ZM10.64,7.13A6.44,6.44,0,0,0,6.07,18.19L20,32.06,33.94,18.12A6.44,6.44,0,0,0,34,9l0,0a6.44,6.44,0,0,0-4.77-1.85A6,6,0,0,0,24.83,9L20,13.78,15.21,9A6.44,6.44,0,0,0,10.64,7.13Z"/>
+                       </svg>
+                       
+                       <a href='#' class='heart-clip'></a>
+                    </div>
+
                 </div>
             </div>
 
@@ -81,7 +187,25 @@
                 </picture>
                 <div class="restaurant-info">
                     <h3>Le Babette Concept Store</h3>
-                    <p>Montant Minimum: 15$</p>
+                    <p>Montant Minimum: 10$</p>
+
+                    <svg id='heart' height="0" width="0">
+                        <defs>
+                            <clipPath id="svgPath">
+                                <path d="M20,35.09,4.55,19.64a8.5,8.5,0,0,1-.13-12l.13-.13a8.72,8.72,0,0,1,12.14,0L20,10.79l3.3-3.3a8.09,8.09,0,0,1,5.83-2.58,8.89,8.89,0,0,1,6.31,2.58,8.5,8.5,0,0,1,.13,12l-.13.13Z"/>
+                            </clipPath>
+                        </defs>
+                    </svg>
+
+                    
+                    <div class="heart-container">
+                       <svg width="40" height="40" viewBox="0 0 40 40" class='heart-stroke'>
+                          <path d="M20,35.07,4.55,19.62a8.5,8.5,0,0,1-.12-12l.12-.12a8.72,8.72,0,0,1,12.14,0L20,10.77l3.3-3.3A8.09,8.09,0,0,1,29.13,4.9a8.89,8.89,0,0,1,6.31,2.58,8.5,8.5,0,0,1,.12,12l-.12.12ZM10.64,7.13A6.44,6.44,0,0,0,6.07,18.19L20,32.06,33.94,18.12A6.44,6.44,0,0,0,34,9l0,0a6.44,6.44,0,0,0-4.77-1.85A6,6,0,0,0,24.83,9L20,13.78,15.21,9A6.44,6.44,0,0,0,10.64,7.13Z"/>
+                       </svg>
+                       
+                       <a href='#' class='heart-clip'></a>
+                    </div>
+                    
                 </div>
             </div>
 
@@ -92,7 +216,25 @@
                 </picture>
                 <div class="restaurant-info">
                     <h3>Le Vapiano</h3>
-                    <p>Cité Rouge</p>
+                    <p>Montant Minimum: 16$</p>
+
+                    <svg id='heart' height="0" width="0">
+                        <defs>
+                            <clipPath id="svgPath">
+                                <path d="M20,35.09,4.55,19.64a8.5,8.5,0,0,1-.13-12l.13-.13a8.72,8.72,0,0,1,12.14,0L20,10.79l3.3-3.3a8.09,8.09,0,0,1,5.83-2.58,8.89,8.89,0,0,1,6.31,2.58,8.5,8.5,0,0,1,.13,12l-.13.13Z"/>
+                            </clipPath>
+                        </defs>
+                    </svg>
+
+                    
+                    <div class="heart-container">
+                       <svg width="40" height="40" viewBox="0 0 40 40" class='heart-stroke'>
+                          <path d="M20,35.07,4.55,19.62a8.5,8.5,0,0,1-.12-12l.12-.12a8.72,8.72,0,0,1,12.14,0L20,10.77l3.3-3.3A8.09,8.09,0,0,1,29.13,4.9a8.89,8.89,0,0,1,6.31,2.58,8.5,8.5,0,0,1,.12,12l-.12.12ZM10.64,7.13A6.44,6.44,0,0,0,6.07,18.19L20,32.06,33.94,18.12A6.44,6.44,0,0,0,34,9l0,0a6.44,6.44,0,0,0-4.77-1.85A6,6,0,0,0,24.83,9L20,13.78,15.21,9A6.44,6.44,0,0,0,10.64,7.13Z"/>
+                       </svg>
+                       
+                       <a href='#' class='heart-clip'></a>
+                    </div>
+                    
                 </div>
             </div>
 
@@ -104,6 +246,24 @@
                 <div class="restaurant-info">
                     <h3>Le Comptoir d'Indochine</h3>
                     <p>Montant Minimum: 12$</p>
+
+                    <svg id='heart' height="0" width="0">
+                        <defs>
+                            <clipPath id="svgPath">
+                                <path d="M20,35.09,4.55,19.64a8.5,8.5,0,0,1-.13-12l.13-.13a8.72,8.72,0,0,1,12.14,0L20,10.79l3.3-3.3a8.09,8.09,0,0,1,5.83-2.58,8.89,8.89,0,0,1,6.31,2.58,8.5,8.5,0,0,1,.13,12l-.13.13Z"/>
+                            </clipPath>
+                        </defs>
+                    </svg>
+
+                    
+                    <div class="heart-container">
+                       <svg width="40" height="40" viewBox="0 0 40 40" class='heart-stroke'>
+                          <path d="M20,35.07,4.55,19.62a8.5,8.5,0,0,1-.12-12l.12-.12a8.72,8.72,0,0,1,12.14,0L20,10.77l3.3-3.3A8.09,8.09,0,0,1,29.13,4.9a8.89,8.89,0,0,1,6.31,2.58,8.5,8.5,0,0,1,.12,12l-.12.12ZM10.64,7.13A6.44,6.44,0,0,0,6.07,18.19L20,32.06,33.94,18.12A6.44,6.44,0,0,0,34,9l0,0a6.44,6.44,0,0,0-4.77-1.85A6,6,0,0,0,24.83,9L20,13.78,15.21,9A6.44,6.44,0,0,0,10.64,7.13Z"/>
+                       </svg>
+                       
+                       <a href='#' class='heart-clip'></a>
+                    </div>
+                    
                 </div>
             </div>
 
@@ -115,11 +275,27 @@
                 <div class="restaurant-info">
                     <h3>Le Burger Fermier</h3>
                     <p>Montant Minimum: 8$</p>
+
+                    <svg id='heart' height="0" width="0">
+                        <defs>
+                            <clipPath id="svgPath">
+                                <path d="M20,35.09,4.55,19.64a8.5,8.5,0,0,1-.13-12l.13-.13a8.72,8.72,0,0,1,12.14,0L20,10.79l3.3-3.3a8.09,8.09,0,0,1,5.83-2.58,8.89,8.89,0,0,1,6.31,2.58,8.5,8.5,0,0,1,.13,12l-.13.13Z"/>
+                            </clipPath>
+                        </defs>
+                    </svg>
+
+                    
+                    <div class="heart-container">
+                       <svg width="40" height="40" viewBox="0 0 40 40" class='heart-stroke'>
+                          <path d="M20,35.07,4.55,19.62a8.5,8.5,0,0,1-.12-12l.12-.12a8.72,8.72,0,0,1,12.14,0L20,10.77l3.3-3.3A8.09,8.09,0,0,1,29.13,4.9a8.89,8.89,0,0,1,6.31,2.58,8.5,8.5,0,0,1,.12,12l-.12.12ZM10.64,7.13A6.44,6.44,0,0,0,6.07,18.19L20,32.06,33.94,18.12A6.44,6.44,0,0,0,34,9l0,0a6.44,6.44,0,0,0-4.77-1.85A6,6,0,0,0,24.83,9L20,13.78,15.21,9A6.44,6.44,0,0,0,10.64,7.13Z"/>
+                       </svg>
+                       
+                       <a href='#' class='heart-clip'></a>
+                    </div>
+                    
                 </div>
             </div>
-
         </div>
-
     </section>
 
     <!-- Footer -->
@@ -130,5 +306,15 @@
         <a href="#">Contact</a>
     </footer>
 
+    <script>
+        window.onload = function() {
+            setTimeout(function() {
+                document.getElementById('loading-screen').classList.add('hidden');
+                document.body.classList.remove('hidden');
+                document.body.classList.add('visible');
+            }, 2000);
+        };
+    </script>
 </body>
+
 </html>
