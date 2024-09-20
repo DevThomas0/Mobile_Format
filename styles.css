@@ -6,33 +6,37 @@
     font-family: Arial, sans-serif;
 }
 
-nav {
-    background-color: #f0f0f0;
-    text-align: center;
-    position: relative;
-    font-weight: bold;
-}
-
 body {
     background-color: #f5f5f5;
     line-height: 1.6;
 }
 
+/* Navigation Styles */
+nav {
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: center;
+}
+
 nav .location {
-    display: flex;
-    flex-direction: row;
+    display: inline-flex;
+    align-items: center;  /* Vertically centers items */
+    justify-content: center; /* Horizontally centers items */
+    gap: 8px; /* Space between image and text */
 }
 
-nav .location > p {
-    font-size: 14px;
+nav .location img {
+    width: 20px;  /* Match image height to text size */
+    height: 20px;
+}
+
+nav .location p {
+    font-size: 16px; /* Adjust text size to match the image */
     color: #555;
+    font-weight: bold;
 }
 
-nav .location > img {
-    width: 20px;
-    height: 5%;
-}
-
+/* Hero Section */
 header {
     text-align: center;
     padding: 20px;
@@ -97,6 +101,18 @@ header {
     color: #444;
 }
 
+.video-section {
+    padding: 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.video-section video {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 /* Restaurants Section */
 .restaurants {
     padding: 20px;
@@ -158,6 +174,7 @@ footer a:hover {
     text-decoration: underline;
 }
 
+/* Media Queries for Mobile (Up to 600px) */
 @media (max-width: 600px) {
     .hero {
         padding: 50px 20px;
