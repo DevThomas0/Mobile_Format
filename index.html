@@ -8,13 +8,15 @@
 </head>
 <body>
 
+    <!-- Menu de navigation -->
     <nav>
         <div class="location">
-            <img src="Assets/Compass Flat Black 64.png" alt="Position">
+            <img src="Assets/Compass.png" alt="Position">
             <p>Paris, Belleville</p>
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <header>
         <div class="hero">
             <h1>Réservez le menu qui vous convient</h1>
@@ -23,6 +25,7 @@
         </div>
     </header>
 
+    <!-- Fonctionnement Section -->
     <section class="fonctionnement">
         <div class="fonctionnement-card">
             <span>📱</span>
@@ -46,32 +49,49 @@
         </video>
     </section>
 
+    <!-- Restaurants Section -->
     <section class="restaurants">
         <h2>Restaurants</h2>
         <div class="restaurant-list">
             <div class="restaurant-card">
-                <img src="image1.jpg" alt="La palette du goût">
+                <picture>
+                    <source srcset="image1.webp" type="image/webp">
+                    <source srcset="image1.jpg" type="image/jpeg">
+                    <img src="image1.jpg" alt="La palette du goût" loading="lazy">
+                </picture>
                 <div class="restaurant-info">
                     <h3>La palette du goût</h3>
                     <p>Min montant</p>
                 </div>
             </div>
             <div class="restaurant-card">
-                <img src="image2.jpg" alt="La note enchantée">
+                <picture>
+                    <source srcset="image2.webp" type="image/webp">
+                    <source srcset="image2.jpg" type="image/jpeg">
+                    <img src="image2.jpg" alt="La note enchantée" loading="lazy">
+                </picture>
                 <div class="restaurant-info">
                     <h3>La note enchantée</h3>
                     <p>Charonne</p>
                 </div>
             </div>
             <div class="restaurant-card">
-                <img src="image3.jpg" alt="À la française">
+                <picture>
+                    <source srcset="image3.webp" type="image/webp">
+                    <source srcset="image3.jpg" type="image/jpeg">
+                    <img src="image3.jpg" alt="À la française" loading="lazy">
+                </picture>
                 <div class="restaurant-info">
                     <h3>À la française</h3>
                     <p>Cité Rouge</p>
                 </div>
             </div>
             <div class="restaurant-card">
-                <img src="image4.jpg" alt="Le délice des sens">
+                <picture>
+                    <source srcset="image4.webp" type="image/webp">
+                    <source srcset="image4.jpg" type="image/jpeg">
+                    <img src="image4.jpg" alt="Le délice des sens" loading="lazy">
+                </picture>
                 <div class="restaurant-info">
                     <h3>Le délice des sens</h3>
                     <p>Fab. Ménilmont</p>
@@ -80,11 +100,13 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <a href="#">Proposer un restaurant</a>
         <a href="#">Devenir partenaire</a>
         <a href="#">Mentions légales</a>
         <a href="#">Contact</a>
     </footer>
+
 </body>
 </html>

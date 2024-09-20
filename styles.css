@@ -20,20 +20,28 @@ nav {
 
 nav .location {
     display: inline-flex;
-    align-items: center;  /* Vertically centers items */
-    justify-content: center; /* Horizontally centers items */
-    gap: 8px; /* Space between image and text */
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
 nav .location img {
-    width: 20px;  /* Match image height to text size */
-    height: 20px;
+    width: 16px;
+    height: 16px;
 }
 
 nav .location p {
-    font-size: 16px; /* Adjust text size to match the image */
+    font-size: 16px;
     color: #555;
-    font-weight: bold;
+    margin: 0;
+}
+
+/* Navigation Links Hover Effect */
+nav .location:hover img,
+nav .location:hover p {
+    color: #000;
+    transition: color 0.3s ease;
+    transform: scale(1.1);
 }
 
 /* Hero Section */
@@ -66,10 +74,12 @@ header {
     border: none;
     border-radius: 25px;
     cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .hero button:hover {
     background-color: #651fff;
+    transform: scale(1.1);
 }
 
 /* Fonctionnement Section */
@@ -101,6 +111,7 @@ header {
     color: #444;
 }
 
+/* Video Section */
 .video-section {
     padding: 20px;
     background-color: #f9f9f9;
@@ -130,12 +141,17 @@ header {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
 .restaurant-card img {
     width: 100%;
-    height: 200px;
+    height: auto;
     object-fit: cover;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-10px);
 }
 
 .restaurant-info {
@@ -168,10 +184,13 @@ footer a {
     text-decoration: none;
     font-size: 0.9rem;
     margin-bottom: 10px;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 footer a:hover {
     text-decoration: underline;
+    color: #7c4dff;
+    transform: translateY(-3px);
 }
 
 /* Media Queries for Mobile (Up to 600px) */
@@ -188,33 +207,11 @@ footer a:hover {
         font-size: 0.9rem;
     }
 
-    .hero button {
-        padding: 10px 15px;
-        font-size: 0.9rem;
+    .restaurant-list {
+        grid-template-columns: 1fr;
     }
 
     .fonctionnement-card {
-        width: 90%;
-        padding: 10px;
-    }
-
-    .fonctionnement-card span {
-        font-size: 1.2rem;
-    }
-
-    .restaurant-card img {
-        height: 150px;
-    }
-
-    .restaurant-info h3 {
-        font-size: 1.1rem;
-    }
-
-    .restaurant-info p {
-        font-size: 0.85rem;
-    }
-
-    footer a {
-        font-size: 0.8rem;
+        width: 100%;
     }
 }
