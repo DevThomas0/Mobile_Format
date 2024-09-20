@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Réserver le menu</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
     <!-- Menu de navigation -->
@@ -27,6 +29,7 @@
 
     <!-- Fonctionnement Section -->
     <section class="fonctionnement">
+        <h2>Fonctionnements</h2>
         <div class="fonctionnement-card">
             <span>📱</span>
             <p>Choisissez un restaurant</p>
@@ -43,61 +46,80 @@
 
     <!-- Video Section -->
     <section class="video-section">
-        <video controls width="100%" height="auto" poster="poster-image.jpg">
-            <source src="video.mp4" type="video/mp4">
-            Votre navigateur ne supporte pas la lecture vidéo.
-        </video>
+        <iframe 
+            width="100%" 
+            height="500" 
+            src="https://www.youtube.com/embed/r147CJ5b7e8" 
+            frameborder="0" 
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
     </section>
 
     <!-- Restaurants Section -->
     <section class="restaurants">
         <h2>Restaurants</h2>
+
         <div class="restaurant-list">
+
             <div class="restaurant-card">
                 <picture>
-                    <source srcset="image1.webp" type="image/webp">
-                    <source srcset="image1.jpg" type="image/jpeg">
-                    <img src="image1.jpg" alt="La palette du goût" loading="lazy">
+                    <source srcset="Assets/marl.jpg" type="image/jpeg">
+                    <img src="image" alt="Chez Marlène" loading="lazy">
                 </picture>
+
                 <div class="restaurant-info">
-                    <h3>La palette du goût</h3>
-                    <p>Min montant</p>
+                    <h3>Chez Marlène</h3>
+                    <p>Montant Minimum: 3$/p>
                 </div>
             </div>
+
             <div class="restaurant-card">
                 <picture>
-                    <source srcset="image2.webp" type="image/webp">
-                    <source srcset="image2.jpg" type="image/jpeg">
-                    <img src="image2.jpg" alt="La note enchantée" loading="lazy">
+                    <source srcset="Assets/babette.webp" type="image/webp">
+                    <img src="image2.jpg" alt="Le Babette Concept Store" loading="lazy">
                 </picture>
                 <div class="restaurant-info">
-                    <h3>La note enchantée</h3>
-                    <p>Charonne</p>
+                    <h3>Le Babette Concept Store</h3>
+                    <p>Montant Minimum: 15$</p>
                 </div>
             </div>
+
             <div class="restaurant-card">
                 <picture>
-                    <source srcset="image3.webp" type="image/webp">
-                    <source srcset="image3.jpg" type="image/jpeg">
-                    <img src="image3.jpg" alt="À la française" loading="lazy">
+                    <source srcset="Assets/Vapiano.jpg" type="image/jpeg">
+                    <img src="image3.jpg" alt="Le Vapiano" loading="lazy">
                 </picture>
                 <div class="restaurant-info">
-                    <h3>À la française</h3>
+                    <h3>Le Vapiano</h3>
                     <p>Cité Rouge</p>
                 </div>
             </div>
+
             <div class="restaurant-card">
                 <picture>
-                    <source srcset="image4.webp" type="image/webp">
-                    <source srcset="image4.jpg" type="image/jpeg">
-                    <img src="image4.jpg" alt="Le délice des sens" loading="lazy">
+                    <source srcset="Assets/nouille.jpg" type="image/jpeg">
+                    <img src="image4.jpg" alt="Le Comptoir d'Indochine" loading="lazy">
                 </picture>
                 <div class="restaurant-info">
-                    <h3>Le délice des sens</h3>
-                    <p>Fab. Ménilmont</p>
+                    <h3>Le Comptoir d'Indochine</h3>
+                    <p>Montant Minimum: 12$</p>
                 </div>
             </div>
+
+            <div class="restaurant-card">
+                <picture>
+                    <source srcset="Assets/burger.jpg" type="image/jpeg">
+                    <img src="image1.jpg" alt="Le Burger Fermier" loading="lazy">
+                </picture>
+                <div class="restaurant-info">
+                    <h3>Le Burger Fermier</h3>
+                    <p>Montant Minimum: 8$</p>
+                </div>
+            </div>
+
         </div>
+
     </section>
 
     <!-- Footer -->
